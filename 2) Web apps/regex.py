@@ -143,3 +143,13 @@ print(re.findall(pattern, text, flags= re.MULTILINE,))
 text = 'abca\ndaef'
 pattern = r'a.'
 print(re.findall(pattern,text,flags= re.DOTALL))
+pattern = re.compile(r"""
+    ^       #Початок рядка
+    ()
+    """)
+
+samples = [
+    '+38 (067) 123-45-67'
+    '0671234567'
+    '+380671234567'
+]
