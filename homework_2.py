@@ -25,7 +25,6 @@ import time
 def find_primes_multi_thread(start, end):
     primes_part1 = []
     primes_part2 = []
-
     middle = (start + end) // 2
     def find_part1():
         for i in range(start, middle):
