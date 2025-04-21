@@ -141,7 +141,7 @@ def fetch_user_data(user_id):
         connection = sqlite3.connect("example.db")
         cursor = connection.cursor()  # Отримуємо об'єкт курсора для виконання запитів.
         # Виконуємо SQL-запит для отримання даних користувача за заданим user_id.
-        cursor.execute("SELECT * FROM users WHERE id = ?", (user_id,))
+        # cursor.execute("SELECT * FROM users WHERE id = ?", (user_id,))
         data = cursor.fetchone()  # Отримуємо перший рядок результату.
         # Якщо дані не знайдено, викликаємо LookupError.
         if data is None:
