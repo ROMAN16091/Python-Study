@@ -17,8 +17,8 @@ CREATE TABLE IF NOT EXISTS users
 )
 ''')
 
-# Додаємо одного користувача (але з помилкою у email: замість .com — ,com)
-cur.execute('INSERT INTO users (name, age, email) VALUES (?, ?, ?)', ('Ivan', 30, 'ivan@example,com'))
+# Додаємо одного користувача
+cur.execute('INSERT INTO users (name, age, email) VALUES (?, ?, ?)', ('Ivan', 30, 'ivan@example.com'))
 
 # Додаємо кількох користувачів одразу
 users = [
