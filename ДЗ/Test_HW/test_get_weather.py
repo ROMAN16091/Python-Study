@@ -1,5 +1,4 @@
 import requests, json
-url = requests.get('http://api.openweathermap.org/data/2.5/weather?q=London&appid=5c62da02e9e30f91537def5669c10abc&units=metric&lang=uk')
 
 def get_weather_from_api(data, status_code):
     temp = data['main']['temp']
