@@ -138,7 +138,7 @@ def fetch_user_data(user_id):
     connection = None  # Ініціалізуємо змінну для з'єднання з базою даних.
     try:
         # Підключаємось до бази даних "example.db".
-        connection = sqlite3.connect("example.db")
+        connection = sqlite3.connect("../../2) Web apps/ORM&SQL/example.db")
         cursor = connection.cursor()  # Отримуємо об'єкт курсора для виконання запитів.
         # Виконуємо SQL-запит для отримання даних користувача за заданим user_id.
         # cursor.execute("SELECT * FROM users WHERE id = ?", (user_id,))
