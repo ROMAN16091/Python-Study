@@ -1,6 +1,6 @@
-import re
-
-from bs4 import BeautifulSoup, NavigableString
+# import re
+#
+# from bs4 import BeautifulSoup, NavigableString
 
 
 # soup = BeautifulSoup('<b class = "boldest"Extra bold</b>', 'lxml')
@@ -106,19 +106,19 @@ from bs4 import BeautifulSoup, NavigableString
 
 
 
-html_doc = """<html><head><title>IT School</title></head>
-<body>
-<p class="title"><b>Students</b></p>
-
-<p class="python">We have three students
-<a href="http://example.com/bob" class="student" id="link1">Bob</a>,
-<a href="http://example.com/alice" class="student" id="link2">Alice</a> and
-<a href="http://example.com/john" class="student" id="link3">John</a>;
-they study.</p>
-
-<p class="python">...</p>
-"""
-soup = BeautifulSoup(html_doc, 'lxml')
+# html_doc = """<html><head><title>IT School</title></head>
+# <body>
+# <p class="title"><b>Students</b></p>
+#
+# <p class="python">We have three students
+# <a href="http://example.com/bob" class="student" id="link1">Bob</a>,
+# <a href="http://example.com/alice" class="student" id="link2">Alice</a> and
+# <a href="http://example.com/john" class="student" id="link3">John</a>;
+# they study.</p>
+#
+# <p class="python">...</p>
+# """
+# soup = BeautifulSoup(html_doc, 'lxml')
 
 # print(soup.find_all('b'))
 
@@ -150,4 +150,14 @@ soup = BeautifulSoup(html_doc, 'lxml')
 
 # print(soup.find_all(href = re.compile('bob'), id = 'link1'))
 
-print()
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+import csv
+import time
+
+url = 'https://rozetka.com.ua/ua/mobile-phones/c80003/page=1;producer=apple/'
+driver = webdriver.Chrome()
+
+driver.get(url)
+time.sleep(3)
+driver.quit()

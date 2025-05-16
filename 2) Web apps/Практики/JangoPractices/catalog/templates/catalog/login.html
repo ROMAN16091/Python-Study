@@ -1,0 +1,11 @@
+{% extends 'catalog/base.html' %}
+{% block title %}Увійти{% endblock %}
+{% block content %}
+<h2>Вхід</h2>
+<form method="post">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type = 'submit'>Увійти</button>
+</form>
+<p>Ще не маєте аккаунту? <a href="{% url 'login' %}">Реєстрація</a></p>
+{% endblock %}

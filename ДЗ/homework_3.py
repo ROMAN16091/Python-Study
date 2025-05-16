@@ -30,6 +30,8 @@ class User:
             print('Користувача зареєстровано!')
         except sqlite3.IntegrityError:
             print('Користувач вже існує!')
+
+
     @staticmethod
     def login(username, password):
         cur.execute('SELECT * FROM users WHERE (username = ? AND password = ?)', (username, password))
