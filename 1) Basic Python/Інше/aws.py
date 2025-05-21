@@ -18,4 +18,3 @@ import boto3
 # for odj in response.get('Contents', []):
 #     print(odj['Key'])
 
-ec2_client = boto3.client('ec2', region)

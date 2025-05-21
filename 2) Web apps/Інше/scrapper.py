@@ -150,14 +150,41 @@
 
 # print(soup.find_all(href = re.compile('bob'), id = 'link1'))
 
+import time
+import csv
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-import csv
-import time
 
-url = 'https://rozetka.com.ua/ua/mobile-phones/c80003/page=1;producer=apple/'
+
 driver = webdriver.Chrome()
+# html = driver.page_source
+# with open('index2.html', 'w', encoding='utf-8') as file:
+#     file.write(html)
+with open('apple.csv', 'w', newline='', encoding='utf-8') as file:
+    writer = csv.writer(file)
+    writer.writerow(['Title', 'New Price', 'Old Price', 'URL'])
 
-driver.get(url)
-time.sleep(3)
+    for p in range(1,3):
+        url = f'https://rozetka.com.ua/ua/mobile-phones/c80003/page={p};producer=apple/'
+        print(f'Load page {p}')
+        driver.get(url)
+        time.sleep(5)
+        items = driver.find_elements(By.CSS_SELECTOR, 'div.item')
+        for item in items:
+            try:
+                title_elem = item.find_element(By.CSS_SELECTOR, 'a.title-title')
+                title = title_elem.text
+                link = title_elem.get_attribute('href')
+
+                price_elem = item.find_element(By.CSS_SELECTOR, 'div.price-wrap .price')
+                price = price_elem.text.strip()
+
+                old_price_elem = item.find_element(By.CSS_SELECTOR, 'div.price-wrap .old-price')
+                old_price = old_price_elem.text.strip()
+
+                writer.writerow([title, price, old_price, url])
+            except Exception as e:
+                print(f'Error: {e}')
+                continue
 driver.quit()
+print('Done!')
